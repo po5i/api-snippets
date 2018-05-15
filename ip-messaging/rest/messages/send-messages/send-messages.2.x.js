@@ -1,18 +1,14 @@
-const accountSid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
-const authToken = 'your_auth_token';
-const IpMessagingClient = require('twilio').IpMessagingClient;
+var accountSid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+var authToken = 'your_auth_token';
+var IpMessagingClient = require('twilio').IpMessagingClient;
 
-const client = new IpMessagingClient(accountSid, authToken);
-const service = client.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+var client = new IpMessagingClient(accountSid, authToken);
+var service = client.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
 
-service
-  .channels('CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-  .messages.create({
-    body: 'MESSAGE',
-  })
-  .then(response => {
+service.channels('CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').messages.create({
+    body: 'MESSAGE'
+}).then(function(response) {
     console.log(response);
-  })
-  .fail(error => {
+}).fail(function(error) {
     console.log(error);
-  });
+});

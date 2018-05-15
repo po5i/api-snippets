@@ -1,18 +1,14 @@
-const accountSid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
-const authToken = 'your_auth_token';
-const Twilio = require('twilio').Twilio;
+var accountSid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+var authToken = 'your_auth_token';
+var Twilio = require('twilio').Twilio;
 
-const client = new Twilio(accountSid, authToken);
-const service = client.chat.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+var client = new Twilio(accountSid, authToken);
+var service = client.chat.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
 
-service
-  .channels('CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-  .messages.create({
-    body: 'New message',
-  })
-  .then(response => {
+service.channels('CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').messages.create({
+    body: 'New message'
+}).then(function(response) {
     console.log(response);
-  })
-  .catch(error => {
+}).catch(function(error) {
     console.log(error);
-  });
+});
